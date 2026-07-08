@@ -1,1 +1,475 @@
+/* =========================================
+   VARIABLES & PALET WARNA (PASTEL THEME)
+========================================= */
+:root {
+    --soft-pink: #FFB6C1;
+    --soft-purple: #E6E6FA;
+    --cream: #FFFDD0;
+    --white: #FFFFFF;
+    --baby-blue: #89CFF0;
+    --peach: #FFCBA4;
+    --mint: #98FF98;
+    
+    /* Glassmorphism Variables */
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-shadow: 0 8px 32px 0 rgba(255, 182, 193, 0.2);
+    
+    /* Transitions */
+    --smooth: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
+/* =========================================
+   BASE RESET & TYPOGRAPHY
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Hilangkan highlight biru di HP */
+    user-select: none; /* Cegah teks ter-block tidak sengaja */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--soft-pink);
+    color: #555;
+    overflow: hidden; /* Mengunci scroll agar terasa seperti aplikasi native */
+    width: 100vw;
+    height: 100vh;
+}
+
+/* =========================================
+   UTILITIES & LAYOUTING
+========================================= */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity var(--smooth), transform var(--smooth);
+    z-index: 10;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.98);
+}
+
+.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Backgrounds */
+.bg-pastel-pink { background-color: var(--soft-pink); }
+.bg-pastel-gradient {
+    background: linear-gradient(135deg, var(--soft-pink), var(--soft-purple), var(--baby-blue));
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+}
+.bg-room-pink { background-color: #ffe4e1; } /* Fallback bg ruangan */
+
+/* =========================================
+   GLASSMORPHISM COMPONENTS
+========================================= */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--glass-shadow);
+}
+
+/* =========================================
+   SPLASH SCREEN
+========================================= */
+.splash-content {
+    text-align: center;
+    animation: float 3s ease-in-out infinite;
+}
+
+.kawaii-title {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #fff;
+    opacity: 0.8;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.loading-bar {
+    width: 200px;
+    height: 8px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.loading-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--white);
+    border-radius: 10px;
+    transition: width 0.2s ease;
+}
+
+/* =========================================
+   BUTTONS (APPLE & PINTEREST STYLE)
+========================================= */
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+    will-change: transform;
+}
+
+button:active {
+    transform: scale(0.92);
+}
+
+.btn-kawaii {
+    background: var(--white);
+    color: #ff8b94;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px 40px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
+    margin: 10px;
+    width: 200px;
+}
+
+.btn-circle {
+    background: var(--white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.btn-sm {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+}
+
+/* =========================================
+   MAIN MENU
+========================================= */
+.menu-panel {
+    padding: 40px 30px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.menu-panel h2 {
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+}
+
+.character-select {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.menu-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* =========================================
+   GAME SCREEN UI (HUD)
+========================================= */
+.glass-ui-top {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20;
+}
+
+.coin-display {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #ff7b89;
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.glass-ui-right {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 20;
+}
+
+/* Canvas Karakter */
+#doll-canvas-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30vh; /* Ruang untuk bottom sheet */
+    z-index: 1;
+}
+
+#doll-svg {
+    max-width: 100%;
+    max-height: 80vh;
+    transition: transform var(--smooth);
+}
+
+/* =========================================
+   BOTTOM SHEET (WARDROBE & ITEMS)
+========================================= */
+.bottom-sheet {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40vh; /* 40% tinggi layar */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    transform: translateY(0);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
+}
+
+.bottom-sheet.closed {
+    transform: translateY(100%);
+}
+
+.category-tabs {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 15px 15px 15px;
+    gap: 15px;
+    scrollbar-width: none; /* Firefox */
+}
+
+.category-tabs::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+.tab-btn {
+    background: transparent;
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 15px;
+    min-width: 50px;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+    background: var(--white);
+    opacity: 1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+
+.items-grid {
+    flex: 1;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 15px;
+    padding: 0 20px 20px 20px;
+    align-content: start;
+}
+
+.item-card {
+    background: var(--white);
+    border-radius: 16px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.item-card.equipped {
+    border: 2px solid var(--mint);
+}
+
+/* =========================================
+   PHOTO MODE UI (IPHONE STYLE)
+========================================= */
+#photo-mode-ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85); /* Kesan layar kamera iPhone */
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: opacity 0.3s ease;
+}
+
+#photo-mode-ui.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.camera-top-controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 20px;
+}
+
+.cam-btn {
+    background: transparent;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.camera-lens-selector {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.lens-btn {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+}
+
+.lens-btn.active {
+    background: #ffcc00; /* Warna kuning khas kamera */
+    color: #000;
+}
+
+.camera-bottom-controls {
+    height: 120px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.shutter-btn {
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border-radius: 50%;
+    border: 4px solid #000;
+    outline: 3px solid #fff;
+    transition: transform 0.1s ease;
+}
+
+.shutter-btn:active {
+    transform: scale(0.9);
+    background: #f0f0f0;
+}
+
+/* =========================================
+   ANIMATIONS & EFFECTS
+========================================= */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Particle system styling untuk efek skincare / background */
+.particle {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    will-change: transform, opacity;
+}
+
+/* Responsive Tablet & Desktop (Bisa dimainkan di PC) */
+@media (min-width: 768px) {
+    .bottom-sheet {
+        width: 400px;
+        height: 80vh;
+        top: 10vh;
+        bottom: auto;
+        left: auto;
+        right: 20px;
+        border-radius: 24px;
+        transform: translateX(0);
+    }
+    
+    .bottom-sheet.closed {
+        transform: translateX(120%);
+    }
+
+    #doll-canvas-container {
+        padding-bottom: 0;
+        padding-right: 420px; /* Geser area karakter agar tidak tertutup menu */
+    }
+}
