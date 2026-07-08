@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+    <!-- Background Squircle (Apple Style) -->
+    <rect width="512" height="512" rx="115" fill="#FFB6C1" />
+    
+    <!-- Outer Glow / Background Highlight -->
+    <circle cx="256" cy="256" r="180" fill="#FFC0CB" opacity="0.5" />
+    <circle cx="256" cy="256" r="140" fill="#FFD1DC" opacity="0.8" />
+    
+    <!-- Cute Bow (Pita) -->
+    <path d="M256 256 L 120 170 C 90 150, 70 200, 100 250 L 256 256 Z" fill="#FFF" />
+    <path d="M256 256 L 392 170 C 422 150, 442 200, 412 250 L 256 256 Z" fill="#FFF" />
+    <path d="M256 256 L 130 350 C 100 370, 90 320, 120 280 L 256 256 Z" fill="#FFF" opacity="0.9" />
+    <path d="M256 256 L 382 350 C 412 370, 422 320, 392 280 L 256 256 Z" fill="#FFF" opacity="0.9" />
+    
+    <!-- Center Knot -->
+    <circle cx="256" cy="256" r="35" fill="#FF69B4" />
+    <circle cx="250" cy="250" r="10" fill="#FFF" opacity="0.6" />
+    
+    <!-- Sparkles -->
+    <path d="M 380 120 Q 400 120 400 100 Q 400 120 420 120 Q 400 120 400 140 Q 400 120 380 120 Z" fill="#FFF" />
+    <path d="M 120 100 Q 130 100 130 90 Q 130 100 140 100 Q 130 100 130 110 Q 130 100 120 100 Z" fill="#FFF" />
+    <path d="M 150 400 Q 170 400 170 380 Q 170 400 190 400 Q 170 400 170 420 Q 170 400 150 400 Z" fill="#FFF" />
+</svg>
