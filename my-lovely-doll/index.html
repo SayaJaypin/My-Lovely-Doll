@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>My Lovely Doll</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FFB6C1">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <audio id="bgm" src="assets/audio/bgm.mp3" loop preload="auto"></audio>
+    <audio id="sfx-click" src="assets/audio/click.mp3" preload="auto"></audio>
+
+    <div id="splash-screen" class="screen active flex-center bg-pastel-pink">
+        <div class="splash-content">
+            <svg width="150" height="150" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" fill="#FFFDD0" />
+                <path d="M60 90 Q100 140 140 90" stroke="#FFB6C1" stroke-width="10" stroke-linecap="round" fill="none"/>
+                <circle cx="70" cy="70" r="12" fill="#89CFF0" />
+                <circle cx="130" cy="70" r="12" fill="#89CFF0" />
+                <path d="M30 40 L40 20 L50 40 L70 50 L50 60 L40 80 L30 60 L10 50 Z" fill="#FFCBA4"/>
+            </svg>
+            <h1 class="kawaii-title">My Lovely Doll</h1>
+            <p class="subtitle">Created by JayX — for my love, Zahra :p</p>
+            <div class="loading-bar"><div class="loading-fill"></div></div>
+        </div>
+    </div>
+
+    <div id="main-menu" class="screen hidden bg-pastel-gradient">
+        <div class="glass-panel menu-panel">
+            <h2>Select Your Doll</h2>
+            <div class="character-select">
+                <button class="btn-kawaii" onclick="startGame('female')">Girl</button>
+                <button class="btn-kawaii" onclick="startGame('male')">Boy</button>
+            </div>
+            <div class="menu-bottom">
+                <button class="btn-circle" id="btn-achievements">👧🏻</button>
+                <button class="btn-circle" id="btn-collection">👦🏻</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-screen" class="screen hidden">
+        <div id="doll-canvas-container" class="bg-room-pink">
+            <svg id="doll-svg" viewBox="0 0 500 800" width="100%" height="100%">
+                </svg>
+            
+            <div id="particle-container"></div>
+        </div>
+
+        <div class="glass-ui-top">
+            <div class="coin-display">🪙 <span id="coin-count">0</span></div>
+            <button class="btn-circle btn-sm" id="btn-home">🏠</button>
+        </div>
+
+        <div class="glass-ui-right">
+            <button class="btn-circle" id="btn-photo">📸</button>
+            <button class="btn-circle" id="btn-random">🎲</button>
+            <button class="btn-circle" id="btn-skincare">✨</button>
+        </div>
+
+        <div id="photo-mode-ui" class="hidden">
+            <div class="camera-top-controls">
+                <button class="cam-btn">⚡ ON</button>
+                <button class="cam-btn btn-close-cam">✖</button>
+            </div>
+            <div class="camera-lens-selector">
+                <button class="lens-btn active">0.5x</button>
+                <button class="lens-btn">1x</button>
+            </div>
+            <div class="camera-bottom-controls">
+                <button class="shutter-btn"></button>
+            </div>
+        </div>
+
+        <div class="bottom-sheet glass-panel">
+            <div class="category-tabs">
+                <button class="tab-btn active" data-target="hair">💇‍♀️</button>
+                <button class="tab-btn" data-target="face">👁️</button>
+                <button class="tab-btn" data-target="clothes">👗</button>
+                <button class="tab-btn" data-target="shoes">👠</button>
+                <button class="tab-btn" data-target="acc">🎀</button>
+                <button class="tab-btn" data-target="bg">🖼️</button>
+            </div>
+            <div class="items-grid" id="items-container">
+                </div>
+        </div>
+    </div>
+
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
